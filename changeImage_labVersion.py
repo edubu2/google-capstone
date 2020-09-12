@@ -4,7 +4,7 @@ from PIL import Image
 import os
 import glob
 
-image_dir = "/home/student-00-2f1586be3161/supplier-data/images/" # update to linux path
+image_dir = "/home/student-04-fbc89b151ccf/supplier-data/images/" # update to linux path
 old_ext = '.tiff' # change to .tiff for linux, .tif for windows
 new_ext = '.jpeg' # change to .jpeg for linux, .jpg for Windows
 

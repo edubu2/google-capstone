@@ -2,7 +2,7 @@
 import requests
 import glob
 
-image_dir = "/home/student-00-2f1586be3161/supplier-data/images/" # update to linux path
+image_dir = "/home/student-04-fbc89b151ccf/supplier-data/images/" # update to linux path
 images = glob.glob(image_dir + '*')
 
 url = 'http://localhost/upload/'
