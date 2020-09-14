@@ -5,6 +5,7 @@ import os
 import requests
 import json
 import re
+
 # get list of all files (full path) in the descriptions directory
 descriptions_folder = "C:/Users/Elliot/Python/Google/capstone/supplier-data/descriptions/"
 descriptions = glob.glob(descriptions_folder + '*')
@@ -14,6 +15,7 @@ url = 'http://104.197.242.180/fruits/'
 
 def generate_json(descriptions_file_list):
     """This function parses the description files and returns a list of JSON dictionaries to be uploaded one-by-one"""
+
     json_list = []
     for d in descriptions_file_list:
         if d.endswith('.txt') == False:
@@ -42,11 +44,11 @@ def upload_data(descriptions_formatted):
         print("Uploading {}...".format(description['name']))
         response = requests.post(url, json=data_json)
         if response.status_code == 201:
-            print("Successfully uploaded {}.".format(description['name'])" )
+            print("Successfully uploaded {}.".format(description['name']))
 
 def main():
     data = generate_json(descriptions)
-    print(data)
+    # print(data)
     #upload_data(data) #uncomment in lab to actually upload the data
 
 main()

@@ -43,7 +43,7 @@ def upload_data(descriptions_formatted):
         print("Uploading {}...".format(description['name']))
         response = requests.post(url, json=data_json)
         if response.status_code == 201:
-            print("Successfully uploaded {}.".format(description['name'])" )
+            print("Successfully uploaded {}.".format(description['name']))
 
 def main():
     data = generate_json(descriptions)
