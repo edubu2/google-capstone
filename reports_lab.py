@@ -12,7 +12,7 @@ import os
 
 def generate_report():
     data = generate_json(descriptions)
-    pdf_output_location = "C:/Users/Elliot/Python/Google/capstone/processed.pdf"
+    pdf_output_location = "/tmp/processed.pdf"
     # create a report object
     report = SimpleDocTemplate(pdf_output_location)
     styles = getSampleStyleSheet()
@@ -33,9 +33,3 @@ def generate_report():
     body_pdf = "<br />".join(body)
     report_body = Paragraph(body_pdf, styles["BodyText"])
     report.build([report_title, report_body])
-
-def main():
-    generate_report()
-
-if __name__ == "__main__":
-    main()

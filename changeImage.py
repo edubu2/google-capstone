@@ -17,7 +17,7 @@ def format_images(image_filenames):
     f, e = os.path.splitext(image) # separates filepath from it's extension (i.e. /home/file.ext --> '/home/file', '.ext')
     if e == old_ext:
       print("Working on {}...".format(image))
-      im = Image.open(image)
+      im = Image.open(image).convert("RGB")
       new_im = im.resize((600,400)).save(f + new_ext)
       im.close()
       os.remove(image) # delete the original image
