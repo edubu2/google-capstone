@@ -1,12 +1,12 @@
-#!\\usr\\bin\\env python3
+#!/usr/bin/env python3
 
 from PIL import Image
 import os
 import glob
 
-image_dir = "C:\\Users\\Elliot\\Python\\Google\\capstone\\supplier-data\\images\\" # update to linux path
-old_ext = '.tif' # change to .tiff for linux, .tif for windows
-new_ext = '.jpg' # change to .jpeg for linux, .jpg for Windows
+image_dir = "CHANGE_ME" # update to linux path
+old_ext = '.tiff' # change to .tiff for linux, .tif for windows
+new_ext = '.jpeg' # change to .jpeg for linux, .jpg for Windows
 
 # get image filenames (full path) into a list
 images = glob.glob(image_dir + '*')

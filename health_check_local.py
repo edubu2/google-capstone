@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import shutil, psutil, os, sys, socket
-from emails_lab import generate_email, send_email
+from emails import generate_email, send_email
 
 def check_cpu_constrained():
     """Returns True if there is >20% CPU available, False otherwise"""
-    cpu_percent = psutil.cpu_percent(3)
-    if cpu_percent > 80:
+    cpu_percent = psutil.cpu_percent(1)
+    if cpu_percent > 1:
         return False
     return True
 
@@ -27,7 +27,7 @@ def check_available_RAM():
     return True
 
 def check_host():
-    """Returns True if 'localhost' is resolved to "127.0.0.1, False otherwise"""
+    """Returns True if 'localhost' is resolved to "127.0.0.1", False otherwise"""
     if socket.gethostbyname('localhost') != '127.0.0.1':
         return False
     return True
@@ -43,11 +43,12 @@ def main():
     for checkIsGood, msg in checks:
         if not checkIsGood:
             print(msg = '\n Sending alert...')
-            email = generate_email(
+            email = generate_alert_email(
             sender='automation@example.com',
             recipient='student-01-d177668c7ce9@example.com',
             subject=msg,
             body='Please check your system and resolve the issue as soon as possible.')
+            send_email(email)
             print("Alert sent successfully")
             everything_ok = False
     if not everything_ok:

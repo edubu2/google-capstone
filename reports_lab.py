@@ -3,7 +3,7 @@
 import os
 
 #update run_local to run in actual lab
-from run_local import generate_json, descriptions
+from run import generate_json, descriptions
 from reportlab.platypus import SimpleDocTemplate, Paragraph
 #import sample style sheet to use html-like headings in the PDF file
 from reportlab.lib.styles import getSampleStyleSheet
