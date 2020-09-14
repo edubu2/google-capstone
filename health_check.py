@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import shutil, psutil, os, sys, socket
-from emails import generate_email, send_email
+from emails import generate_alert_email, send_email
 
 def check_cpu_constrained():
     """Returns True if there is >20% CPU available, False otherwise"""
     cpu_percent = psutil.cpu_percent(1)
-    if cpu_percent > 1:
+    if cpu_percent > 20:
         return False
     return True
 
@@ -41,11 +41,10 @@ def main():
     ]
     everything_ok = True
     for checkIsGood, msg in checks:
-        if not checkIsGood:
-            print(msg = '\n Sending alert...')
+        if checkIsGood is False:
             email = generate_alert_email(
             sender='automation@example.com',
-            recipient='student-01-d177668c7ce9@example.com',
+            recipient='student-01-d177668c7ce9@example.com', #UPDATE WITH LAB CREDENTIALS@example.com
             subject=msg,
             body='Please check your system and resolve the issue as soon as possible.')
             send_email(email)
