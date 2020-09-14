@@ -13,6 +13,7 @@ def generate_email(sender, recipient, subject, body, *attachment_path):
     message["Subject"] = subject
     message.set_content(body)
     # if there's an attachment, process it & add it to the message
+    # the for-loop is needed in order for this function to support emails w/o attachments
     for attachment in attachment_path:
         # process the attachment w/ it's mimetype & attach to email
         attachment_filename = os.path.basename(attachment)
