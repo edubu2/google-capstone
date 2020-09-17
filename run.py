@@ -38,6 +38,7 @@ def generate_json(descriptions_file_list):
     return json_list
 
 def upload_data(descriptions_formatted):
+    """This function posts the data to the web server, one product at a time."""
     for description in descriptions_formatted:
         data_json = json.loads(json.dumps(description))
         print("Uploading {}...".format(description['name']))
